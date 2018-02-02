@@ -1,0 +1,25 @@
+{
+    "name": "deflopian/education-tests",
+    "type": "library",
+    "license": "MIT",
+    "description": "A Laravel module with basic Tests-Questions-Variants functional. Alpha version, not recommended to use in production",
+    "authors": [
+        {
+            "name": "Vadim Bannov",
+            "email": "deflopian@gmail.com"
+        }
+    ],
+    "version": "0.1.0",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": "5.5.*",
+        "tymon/jwt-auth": "^1.0.0-rc.1",
+        "webpatser/laravel-uuid": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Deflopian\\EducationTests\\": "src"
+        }
+    }
+}
