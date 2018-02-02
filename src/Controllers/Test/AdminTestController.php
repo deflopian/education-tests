@@ -34,8 +34,9 @@ class AdminTestController extends Controller
         return response()->json($test, 201);
     }
 
-    public function update(Request $request, Test $test)
+    public function update(Request $request, $test_id)
     {
+        $test = Test::find($test_id);
         $test->update($request->all());
 
         return response()->json($test, 200);

@@ -13,7 +13,7 @@ class UserTestAttemptController extends Controller
     public function __construct()
     {
         $this->middleware('auth:api', ['only' => ['store']]);
-        $this->middleware('admin', ['except' => ['show']]);
+        $this->middleware('admin', ['except' => ['store']]);
     }
 
     public function index()
@@ -21,9 +21,9 @@ class UserTestAttemptController extends Controller
         return UserTestAttempt::all();
     }
 
-    public function show(UserTestAttempt $test)
+    public function show($attempt_id)
     {
-        return $test;
+        return UserTestAttempt::find($attempt_id);
     }
 
     public function store(Request $request)
@@ -83,16 +83,9 @@ class UserTestAttemptController extends Controller
         return response()->json($uuid, 201);
     }
 
-    public function update(Request $request, UserTestAttempt $test)
+    public function delete($attempt_id)
     {
-        $test->update($request->all());
-
-        return response()->json($test, 200);
-    }
-
-    public function delete(Test $test)
-    {
-        $test->delete();
+        UserTestAttempt::find($attempt_id)->delete();
 
         return response()->json(null, 204);
     }
